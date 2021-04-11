@@ -36,6 +36,13 @@ dependencies {
 	compile group: 'com.nimbusds', name: 'nimbus-jose-jwt', version: '6.4.2'
 	// https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt
 	implementation group: 'io.jsonwebtoken', name: 'jjwt', version: '0.2'
+	compile("org.springframework.boot:spring-boot-starter-data-jpa")
+	compile("mysql:mysql-connector-java")
+}
+
+jar {
+	archiveBaseName = 'customers-bp'
+	archiveVersion =  version
 }
 
 test {

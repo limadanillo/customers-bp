@@ -1,0 +1,50 @@
+plugins {
+	id 'org.springframework.boot' version '2.4.4'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'com.br.brasilprev'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation 'org.springframework.boot:spring-boot-starter-webflux'
+	compileOnly 'org.projectlombok:lombok'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'io.projectreactor:reactor-test'
+	testImplementation 'org.springframework.security:spring-security-test'
+	// Openapi
+	implementation 'org.springdoc:springdoc-openapi-webflux-ui:1.5.6'
+	// Swagger-parser
+	implementation group: 'org.springdoc', name: 'springdoc-openapi-webflux-core', version: '1.5.6'
+	compile group: 'com.nimbusds', name: 'nimbus-jose-jwt', version: '6.4.2'
+	// https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt
+	implementation group: 'io.jsonwebtoken', name: 'jjwt', version: '0.2'
+//	compile("org.springframework.boot:spring-boot-starter-data-jpa")
+//	compile("mysql:mysql-connector-java")
+}
+
+jar {
+	archiveBaseName = 'customers-bp'
+	archiveVersion =  version
+}
+
+test {
+	useJUnitPlatform()
+}

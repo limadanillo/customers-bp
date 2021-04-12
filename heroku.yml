@@ -2,4 +2,4 @@ build:
   docker:
     web: Dockerfile
 run:
-  web: bundle exec puma -C config/puma.rb
+  web: java -Dserver.port=$PORT -Dspring.profiles.active=prod $JAVA_OPTS -jar build/libs/customers-bp-0.0.1-SNAPSHOT.jar
